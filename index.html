@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <title>Custom Service</title>
+  </head>
+  <body>
+    <h1>Custom Service Through a Factory</h1>
+    <!-- LIST #2 (limited to 3 items) -->
+    <div  ng-controller='ListController as list'>
+      <h3>List To Buy</h3>
+      <input type="text" ng-model="list.itemName" placeholder="item name">
+      <input type="text" ng-model="list.itemQuantity" placeholder="quantity">
+      <button ng-click="list.addItem();">Add Item</button>
+      <ol>
+        <li ng-repeat="item in list.items">
+          {{ item.quantity }} of {{ item.name }}
+          <button ng-click="list.removeItem($index);">Bought</button>
+        </li>
+      </ol>
+      <ol>
+        <br>
+        <h3>Already Bought List</h3>
+        <li ng-repeat ="boughtItem in list.boughtitems">
+          {{boughtItem.quantity}} of {{boughtItem.name}}
+        </li>
+      </ol>
+    </div>
+
+  </body>
+</html>
